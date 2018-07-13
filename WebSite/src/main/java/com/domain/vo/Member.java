@@ -10,8 +10,8 @@ import lombok.Setter;
 @Entity
 public class Member{
 
-	@Id	// ��Ű
-	@GeneratedValue // ������
+	@Id	// 주키
+	@GeneratedValue // 자동증가
 	@Setter
 	@Getter
 	private int id;
