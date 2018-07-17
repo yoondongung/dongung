@@ -33,10 +33,18 @@ public class Member{
 		this.message = message;
 	}
 
-
+	
+	
 	@Override
 	public String toString() {
 		return "Member [id=" + id + ", name=" + name + ", message=" + message + "]";
+	}
+
+	public Member(int id, String name, String message) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.message = message;
 	}
 
 	
