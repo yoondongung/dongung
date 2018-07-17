@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
 public class HibernateUtil {
 
 	private static SessionFactory sessionFactory;
-	private static String configFile = "hibernate.cfg.xml";
+	private static String configFile = "config/hibernate/hibernate.cfg.xml";
 	
 	static{
 		try {
