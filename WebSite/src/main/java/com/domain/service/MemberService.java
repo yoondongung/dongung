@@ -1,30 +1,48 @@
 package com.domain.service;
 
-import javax.annotation.Resource;
+import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.domain.dao.memberDao;
 import com.domain.vo.Member;
-
-import lombok.Getter;
-import lombok.Setter;
 
 @Service
 public class MemberService {
 
-	@Resource
-	private SessionFactory sessionFactory;
+	@Autowired
+	private memberDao dao;
 	
-	public void insert(int id, String name, String message) {
-		Member member = new Member();
-		member.setId(id);
-		member.setName(name);
-		member.setMessage(message);
+	public Member insertMember(Member _member){
+		return dao.insert(_member);
+	}
+	
+	
+	public void updateMember(Member member){
+		System.out.println("i'm updateService"+member);
+		dao.update(member);
+	}
+	
+	public Member findMember(int memberId){
+		return dao.find(memberId);
+	}
+	
+	public List<Member> findMemberName(String memberName){
 		
-		Session session = sessionFactory.openSession();
-		session.save(member);
-		
+		List<Member> member = dao.findMemberName(memberName);
+		return member;
+	}
+	
+	public List<Member> findMemberAll(){
+		List<Member> member = dao.findMemberAll();
+		return member;
+	}
+	
+	
+	public void deleteMember(int memberId){
+		dao.delete(memberId);
 	}
 }
+
+

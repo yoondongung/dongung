@@ -7,9 +7,30 @@
   </welcome-file-list>
   <context-param>
   	<param-name>rootPath</param-name>
-  	<param-value>/webSite</param-value>
+  	<param-value>/WebSite</param-value>
   </context-param>
   
+  
+ 	<context-param>
+    	<param-name>contextConfigLocation</param-name>
+    	<param-value>classpath:config/spring/spring-context.xml</param-value>
+ 	</context-param>
+  
+  
+    <servlet>
+    <servlet-name>springDispatcherServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>classpath:config/spring/web-context.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>springDispatcherServlet</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
   
   <!--  설정파일을 여러개 쓰기 위해서 설정  -->
    <listener>
@@ -25,8 +46,5 @@
     </init-param>
   </filter>
   
-   <filter-mapping>
-    <filter-name>encodingFilter</filter-name>
-    <url-pattern>*.do</url-pattern>
-  </filter-mapping>
+
 </web-app>

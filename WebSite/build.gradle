@@ -30,7 +30,7 @@ apply plugin: 'war'
 apply plugin: 'jetty'
 
 
-//compileJava.options.encoding = 'UTF-8'	//소스파일의 인코딩형식 지정
+compileJava.options.encoding = 'UTF-8'	//소스파일의 인코딩형식 지정
 // JAVA Version 1.8
 sourceCompatibility = 1.8
 // 개발한 애플리케이션 버전
@@ -49,9 +49,7 @@ eclipse{
 
 }
 
-test {
-		exclude '**/*MemberTest.class'
-}
+
 
 
 jettyRun {
@@ -68,17 +66,27 @@ jar {
 
 repositories {
     mavenCentral()
+    maven { url "http://repo.spring.io/libs-release" }
+
 }
 
 dependencies {
 	compile 'org.springframework:spring-webmvc:4.1.4.RELEASE'
-    compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+	compile group: 'org.springframework', name: 'spring-jdbc', version: '4.1.4.RELEASE'
+	compile group: 'org.springframework', name: 'spring-context', version: '4.1.4.RELEASE'
+	compile group: 'org.springframework', name: 'spring-context-support', version: '4.1.4.RELEASE'
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2.2'
     testCompile group: 'junit', name: 'junit', version: '4.+'
  	providedCompile "javax.servlet:javax.servlet-api:3.+"
 	compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.4.11.v20180605'
+	compile group: 'org.springframework', name: 'spring-orm', version: '4.1.4.RELEASE'
 	compile group: 'org.hibernate', name: 'hibernate-core', version: '4.3.6.Final'
 	compile "org.projectlombok:lombok:1.16.6"
-
+	compile group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
+	compile group: 'org.hibernate.hql', name: 'hibernate-hql-lucene', version: '1.3.0.Final'
+	compile group: 'javax.servlet.jsp.jstl', name: 'jstl', version: '1.2'
+	
+	
 }
 
 test {

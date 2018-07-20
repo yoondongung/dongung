@@ -1,2 +1,4 @@
 eclipse.preferences.version=1
+encoding//src/main/java/com/domain/controller/MemberController.java=UTF-8
+encoding//src/main/java/com/domain/vo/Member.java=UTF-8
 encoding/build.gradle=UTF-8
